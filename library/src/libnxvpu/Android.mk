@@ -8,13 +8,12 @@ include $(CLEAR_VARS)
 SLSIAP_INCLUDE := $(TOP)/hardware/samsung_slsi/slsiap/include
 LINUX_INCLUDE  := $(TOP)/vendor/nexell/$(TARGET_CPU_VARIANT2)/library/include
 
-RATECONTROL_PATH := $(TOP)/vendor/nexell/$(TARGET_CPU_VARIANT2)/library/lib
-
 LOCAL_SHARED_LIBRARIES :=	\
 	liblog \
 	libcutils \
 	libion \
-	libion-nexell
+	libion-nexell \
+	libnxvidrc_android
 
 LOCAL_STATIC_LIBRARIES := \
 	libnxmalloc
@@ -28,10 +27,6 @@ LOCAL_CFLAGS :=
 LOCAL_SRC_FILES := \
 	parser_vld.c \
 	nx_video_api.c
-
-LOCAL_LDFLAGS += \
-	-L$(RATECONTROL_PATH)	\
-	-lnxvidrc_android
 
 LOCAL_MODULE := libnx_vpu
 
