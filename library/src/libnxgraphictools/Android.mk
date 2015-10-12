@@ -12,7 +12,7 @@ include $(CLEAR_VARS)
 
 NX_HW_TOP        := $(TOP)/hardware/samsung_slsi/slsiap/
 NX_HW_INCLUDE    := $(NX_HW_TOP)/include
-NX_LINUX_INCLUDE := $(TOP)/linux/platform/s5p4418/library/include
+NX_LINUX_INCLUDE := $(TOP)/vendor/nexell/$(TARGET_CPU_VARIANT2)/library/include
 
 LOCAL_SHARED_LIBRARIES :=	\
 	liblog \
@@ -58,7 +58,7 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 NX_HW_TOP        := $(TOP)/hardware/samsung_slsi/slsiap/
 NX_HW_INCLUDE    := $(NX_HW_TOP)/include
-NX_LINUX_INCLUDE := $(TOP)/linux/platform/s5p4418/library/include
+NX_LINUX_INCLUDE := $(TOP)/vendor/nexell/$(TARGET_CPU_VARIANT2)/library/include
 
 LOCAL_SHARED_LIBRARIES :=	\
 	liblog \
