@@ -12,7 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+VENDOR_PATH := vendor/nexell/s5p4418
+
 # ratecontrol
 PRODUCT_PACKAGES += \
 	libnxvidrc_android
+
+# ogl
+PRODUCT_COPY_FILES += \
+	$(VENDOR_PATH)/prebuilt/libVR.so:system/lib/libVR.so \
+	$(VENDOR_PATH)/prebuilt/libEGL_vr.so:system/lib/egl/libEGL_vr.so \
+	$(VENDOR_PATH)/prebuilt/libGLESv1_CM_vr.so:system/lib/egl/libGLESv1_CM_vr.so \
+	$(VENDOR_PATH)/prebuilt/libGLESv2_vr.so:system/lib/egl/libGLESv2_vr.so
 
