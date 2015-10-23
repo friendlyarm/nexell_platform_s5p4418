@@ -13,6 +13,7 @@ include $(CLEAR_VARS)
 NX_HW_TOP        := $(TOP)/hardware/samsung_slsi/slsiap/
 NX_HW_INCLUDE    := $(NX_HW_TOP)/include
 NX_LINUX_INCLUDE := $(TOP)/vendor/nexell/$(TARGET_CPU_VARIANT2)/library/include
+NX_OGL_PATH      := $(TOP)/vendor/nexell/$(TARGET_CPU_VARIANT2)/prebuilt
 
 LOCAL_SHARED_LIBRARIES :=	\
 	liblog \
@@ -24,7 +25,7 @@ LOCAL_STATIC_LIBRARIES :=	\
 	libnxmalloc
 
 LOCAL_LDFLAGS += \
-	-L$(NX_HW_TOP)/prebuilt/library -lEGL_vr -lGLESv1_CM_vr -lVR -lGLESv2_vr
+	-L$(NX_OGL_PATH) -lEGL_vr -lGLESv1_CM_vr -lVR -lGLESv2_vr
 
 LOCAL_C_INCLUDES :=	$(TOP)/system/core/include/ion \
 					$(NX_HW_INCLUDE) \
