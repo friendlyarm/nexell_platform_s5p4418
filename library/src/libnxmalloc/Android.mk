@@ -11,7 +11,7 @@ LOCAL_SHARED_LIBRARIES :=	\
 
 LOCAL_C_INCLUDES += system/core/include/ion \
 					$(TOP)/hardware/samsung_slsi/slsiap/include \
-					$(TOP)/linux/platform/s5p4418/library/include
+					$(TOP)/vendor/nexell/$(TARGET_CPU_VARIANT2)/library/include
 
 LOCAL_SRC_FILES := \
 	nx_alloc_mem_ion.c
