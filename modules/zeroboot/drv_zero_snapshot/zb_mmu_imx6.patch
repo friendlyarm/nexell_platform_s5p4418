@@ -1,0 +1,109 @@
+diff --git a/drv_zero_snapshot/arch_imx6/zb_mmu_imx6.c b/drv_zero_snapshot/arch_imx6/zb_mmu_imx6.c
+index 8f9ed5d..b8cd70d 100755
+--- a/drv_zero_snapshot/arch_imx6/zb_mmu_imx6.c
++++ b/drv_zero_snapshot/arch_imx6/zb_mmu_imx6.c
+@@ -252,6 +252,96 @@ mmu_snapshot_coprocessor:                                    \n\
+     			                                             \n\
+ 				mrc p15, 0, r1, c1, c0,  2 	@ CACR           \n\
+ 				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c1, c1,  1 	@ SDER           \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c1, c1,  3 	@ VCR            \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c2, c0,  0 	@ TTB_0R         \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c2, c0,  1 	@ TTB_1R         \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c2, c0,  2 	@ TTBCR          \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c3, c0,  0 	@ DACR           \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c5, c0,  0 	@ D_FSR          \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c5, c0,  1 	@ I_FSR          \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c5, c1,  0 	@ D_AFSR         \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c5, c1,  1 	@ I_AFSR         \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c6, c0,  0 	@ D_FAR          \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c6, c0,  2 	@ I_FAR          \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c7, c4,  0 	@ PAR            \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c9, c12, 0 	@ PMC            \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c9, c12, 1 	@ CESR           \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c9, c12, 2 	@ CECR           \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c9, c12, 3 	@ OFSR           \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c9, c12, 5 	@ PCSR           \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c9, c13, 0 	@ CCR            \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c9, c13, 1 	@ ESR            \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c9, c13, 2 	@ PMCNT          \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c9, c14, 0 	@ UER            \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c9, c14, 1 	@ IESR           \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c9, c14, 2 	@ IECR           \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c10, c0, 0 	@ D_TLBLR        \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c10, c2, 0 	@ PRRR           \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c10, c2, 1 	@ NRRR           \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c12, c0, 0 	@ VBAR        	 \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c12, c0, 1 	@ MVBAR        	 \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c12, c1, 1 	@ VIR        	 \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c13, c0, 0 	@ FCSE           \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c13, c0, 1 	@ CID            \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c13, c0, 2 	@ URWTPID        \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c13, c0, 3 	@ UROTPID        \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c13, c0, 4 	@ POTPID         \n\
++				str	r1, [r0], #4                             \n\
++				mrc p15, 0, r1, c15, c7, 2 	@ MTLBAR         \n\
++				str	r1, [r0], #4                             \n\
++				                                             \n\
++				mov	pc,lr                                    \n\
++");
++#if 0
++asm("   	            					                 \n\
++											                 \n\
++.align  5									                 \n\
++.text                                                        \n\
++.global mmu_snapshot_coprocessor                             \n\
++mmu_snapshot_coprocessor:                                    \n\
++				mrc p15, 0, r1, c1, c0,  0 	@  CR            \n\
++				str	r1, [r0], #4                             \n\
++    			                                             \n\
++				mrc p15, 0, r1, c1, c0,  1 	@ Auxiliary      \n\
++				str	r1, [r0], #4                             \n\
++    			                                             \n\
++				mrc p15, 0, r1, c1, c0,  2 	@ CACR           \n\
++				str	r1, [r0], #4                             \n\
+ 				mrc p15, 0, r1, c2, c0,  0 	@ TTB_0R         \n\
+ 				str	r1, [r0], #4                             \n\
+ 				mrc p15, 0, r1, c2, c0,  1 	@ TTB_1R         \n\
+@@ -303,6 +393,7 @@ mmu_snapshot_coprocessor:                                    \n\
+ 				                                             \n\
+ 				mov	pc,lr                                    \n\
+ ");
++#endif
+ 
+ /*------------------------------------------------------------------------------
+   @brief   TTB 테이블에서 가상주소 vaddr 의 L1 ENTRY 값을 구한다. 

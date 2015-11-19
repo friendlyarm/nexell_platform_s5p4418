@@ -1,0 +1,19 @@
+/* 
+	PHYS_OFFSET + 0x00088000
+ */
+OUTPUT_FORMAT("elf32-littlearm", "elf32-littlearm", "elf32-littlearm")
+OUTPUT_ARCH(arm)
+ENTRY(_fault_entry)
+SECTIONS
+{
+	. = 0x40088000;
+
+	. = ALIGN(4); 	.text 	: { *(.text) }
+	. = ALIGN(4); 	.rodata : { *(.rodata) }
+	. = ALIGN(4);	.data 	: { *(.data) }
+	. = ALIGN(4);	.got 	: { *(.got) }
+	. = ALIGN(4);	_bss_start = . ;
+	. = ALIGN(4);	.bss 	: { *(.bss) }
+	. = ALIGN(4);	_bss_end = . ;
+}
+
